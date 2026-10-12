@@ -1,12 +1,12 @@
 {
   "id": "org.asyar.ai-usage",
   "name": "AI Usage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "See how much of your AI quota is left, right from the launcher or the menu bar.",
   "author": "Asyar",
   "icon": "📊",
   "type": "extension",
-  "asyarSdk": "^4.14.1",
+  "asyarSdk": "^4.15.0",
   "searchable": true,
   "background": { "main": "dist/worker.js" },
   "permissions": [
