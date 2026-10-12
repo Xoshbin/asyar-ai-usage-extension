@@ -1,0 +1,114 @@
+{
+  "id": "org.asyar.ai-usage",
+  "name": "AI Usage",
+  "version": "1.0.0",
+  "description": "See how much of your AI quota is left, right from the launcher or the menu bar.",
+  "author": "Asyar",
+  "icon": "📊",
+  "type": "extension",
+  "asyarSdk": "^4.14.1",
+  "searchable": true,
+  "background": { "main": "dist/worker.js" },
+  "permissions": [
+    "network",
+    "network:secrets",
+    "storage:read",
+    "storage:write",
+    "notifications:send"
+  ],
+  "permissionArgs": {
+    "network:secrets": [
+      {
+        "name": "codex-token",
+        "sources": [
+          { "type": "jsonFile", "path": "~/.codex/auth.json", "pointer": "/tokens/access_token" }
+        ],
+        "hosts": ["chatgpt.com"],
+        "methods": ["GET"],
+        "pathPrefixes": ["/backend-api/wham/usage"],
+        "header": "Authorization",
+        "template": "Bearer {secret}"
+      },
+      {
+        "name": "codex-account-id",
+        "sources": [
+          { "type": "jsonFile", "path": "~/.codex/auth.json", "pointer": "/tokens/account_id" }
+        ],
+        "hosts": ["chatgpt.com"],
+        "methods": ["GET"],
+        "pathPrefixes": ["/backend-api/wham/usage"],
+        "header": "ChatGPT-Account-Id",
+        "template": "{secret}"
+      },
+      {
+        "name": "claude-token",
+        "sources": [
+          {
+            "type": "keychain",
+            "service": "Claude Code-credentials",
+            "account": null,
+            "pointer": "/claudeAiOauth/accessToken"
+          },
+          {
+            "type": "jsonFile",
+            "path": "~/.claude/.credentials.json",
+            "pointer": "/claudeAiOauth/accessToken"
+          }
+        ],
+        "hosts": ["api.anthropic.com"],
+        "methods": ["GET"],
+        "pathPrefixes": ["/api/oauth/usage"],
+        "header": "Authorization",
+        "template": "Bearer {secret}"
+      }
+    ]
+  },
+  "preferences": [
+    {
+      "name": "openrouterApiKey",
+      "type": "password",
+      "title": "OpenRouter API key",
+      "description": "Paste your OpenRouter API key to see remaining credits. Get one at openrouter.ai/keys.",
+      "required": false
+    },
+    {
+      "name": "showInMenuBar",
+      "type": "checkbox",
+      "title": "Show in menu bar",
+      "description": "Show your most urgent quota as a menu-bar item.",
+      "default": false
+    },
+    {
+      "name": "notifyOnLowQuota",
+      "type": "checkbox",
+      "title": "Notify on low quota",
+      "description": "Send a notification the first time a quota drops below the threshold below.",
+      "default": false
+    },
+    {
+      "name": "notifyThresholdPercent",
+      "type": "number",
+      "title": "Notify threshold (%)",
+      "description": "Remaining-quota percentage that triggers the notification.",
+      "default": 10
+    }
+  ],
+  "commands": [
+    {
+      "id": "usage",
+      "name": "AI Usage",
+      "description": "See your Codex, Claude, and OpenRouter quota at a glance",
+      "icon": "📊",
+      "mode": "view",
+      "component": "UsageView"
+    },
+    {
+      "id": "poll",
+      "name": "AI Usage Poll",
+      "description": "Background check of configured AI usage sources",
+      "mode": "background",
+      "searchable": false,
+      "schedule": { "intervalSeconds": 600 }
+    }
+  ]
+}

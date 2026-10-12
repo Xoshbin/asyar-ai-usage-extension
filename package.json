@@ -1,0 +1,26 @@
+{
+  "name": "org.asyar.ai-usage",
+  "version": "1.0.0",
+  "description": "See how much of your AI quota is left, right from the launcher or the menu bar.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "publish": "asyar publish",
+    "link": "asyar link --dev",
+    "package": "npm run build && zip -r extension.zip dist manifest.json"
+  },
+  "dependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "asyar-sdk": "workspace:*",
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.0",
+    "vitest": "^2.1.0",
+    "@vitest/coverage-v8": "^2.1.0"
+  }
+}
