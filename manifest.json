@@ -127,7 +127,6 @@
       "id": "usage",
       "name": "AI Usage",
       "description": "See your Codex, Claude, and OpenRouter quota at a glance",
-      "icon": "📊",
       "mode": "view",
       "component": "UsageView"
     },
