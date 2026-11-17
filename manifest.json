@@ -4,11 +4,13 @@
   "version": "1.0.1",
   "description": "See how much of your AI quota is left, right from the launcher or the menu bar.",
   "author": "Asyar",
-  "icon": "📊",
+  "icon": "assets/icon.png",
   "type": "extension",
-  "asyarSdk": "^4.15.0",
+  "asyarSdk": "^4.17.0",
   "searchable": true,
-  "background": { "main": "dist/worker.js" },
+  "background": {
+    "main": "dist/worker.js"
+  },
   "permissions": [
     "network",
     "network:secrets",
@@ -22,22 +24,42 @@
       {
         "name": "codex-token",
         "sources": [
-          { "type": "jsonFile", "path": "~/.codex/auth.json", "pointer": "/tokens/access_token" }
+          {
+            "type": "jsonFile",
+            "path": "~/.codex/auth.json",
+            "pointer": "/tokens/access_token"
+          }
         ],
-        "hosts": ["chatgpt.com"],
-        "methods": ["GET"],
-        "pathPrefixes": ["/backend-api/wham/usage"],
+        "hosts": [
+          "chatgpt.com"
+        ],
+        "methods": [
+          "GET"
+        ],
+        "pathPrefixes": [
+          "/backend-api/wham/usage"
+        ],
         "header": "Authorization",
         "template": "Bearer {secret}"
       },
       {
         "name": "codex-account-id",
         "sources": [
-          { "type": "jsonFile", "path": "~/.codex/auth.json", "pointer": "/tokens/account_id" }
+          {
+            "type": "jsonFile",
+            "path": "~/.codex/auth.json",
+            "pointer": "/tokens/account_id"
+          }
         ],
-        "hosts": ["chatgpt.com"],
-        "methods": ["GET"],
-        "pathPrefixes": ["/backend-api/wham/usage"],
+        "hosts": [
+          "chatgpt.com"
+        ],
+        "methods": [
+          "GET"
+        ],
+        "pathPrefixes": [
+          "/backend-api/wham/usage"
+        ],
         "header": "ChatGPT-Account-Id",
         "template": "{secret}"
       },
@@ -56,9 +78,15 @@
             "pointer": "/claudeAiOauth/accessToken"
           }
         ],
-        "hosts": ["api.anthropic.com"],
-        "methods": ["GET"],
-        "pathPrefixes": ["/api/oauth/usage"],
+        "hosts": [
+          "api.anthropic.com"
+        ],
+        "methods": [
+          "GET"
+        ],
+        "pathPrefixes": [
+          "/api/oauth/usage"
+        ],
         "header": "Authorization",
         "template": "Bearer {secret}"
       }
@@ -109,7 +137,9 @@
       "description": "Background check of configured AI usage sources",
       "mode": "background",
       "searchable": false,
-      "schedule": { "intervalSeconds": 600 }
+      "schedule": {
+        "intervalSeconds": 600
+      }
     }
   ]
 }
