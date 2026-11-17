@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="32 32 448 448">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#C026D3"/>
@@ -24,8 +24,8 @@
   <rect x="32" y="32" width="448" height="448" rx="104" fill="url(#bg)"/>
   <rect x="32" y="32" width="448" height="448" rx="104" fill="url(#topSheen)"/>
   <rect x="33" y="33" width="446" height="446" rx="103" fill="none" stroke="url(#specularRim)" stroke-width="2"/>
-
-  <g filter="url(#shadow)">
+  <g transform="translate(-102.400 -102.400) scale(1.4)">
+<g filter="url(#shadow)">
     <!-- Outer Telemetry Gauge Track: Radius 144 -->
     <circle cx="256" cy="260" r="144" fill="none" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="5" stroke-dasharray="3 9"/>
     <!-- 72% Capacity Metric Arc: 2*PI*144 ≈ 904.78. 0.72 of 904.78 ≈ 651 -->
@@ -41,5 +41,6 @@
     <path d="M 256, 226 Q 256, 260 290, 260 Q 256, 260 256, 294 Q 256, 260 222, 260 Q 256, 260 256, 226 Z"
           fill="#8B5CF6"/>
     <circle cx="256" cy="260" r="6" fill="#F472B6"/>
+  </g>
   </g>
 </svg>
