@@ -1,3 +1,4 @@
+import 'asyar-sdk/tokens.css';
 import { mount } from 'svelte';
 import { ExtensionContext, registerIconElement } from 'asyar-sdk/view';
 import UsageView from './views/UsageView.svelte';

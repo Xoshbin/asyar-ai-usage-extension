@@ -14,7 +14,8 @@
     "network:secrets",
     "storage:read",
     "storage:write",
-    "notifications:send"
+    "notifications:send",
+    "clipboard:write"
   ],
   "permissionArgs": {
     "network:secrets": [
