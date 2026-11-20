@@ -140,5 +140,11 @@
         "intervalSeconds": 600
       }
     }
+  ],
+  "category": "ai",
+  "platforms": [
+    "macos",
+    "windows",
+    "linux"
   ]
 }
