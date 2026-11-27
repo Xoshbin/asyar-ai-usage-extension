@@ -1,7 +1,7 @@
 {
   "id": "org.asyar.ai-usage",
   "name": "AI Usage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "See how much of your AI quota is left, right from the launcher or the menu bar.",
   "author": "Asyar",
   "icon": "assets/icon.png",
